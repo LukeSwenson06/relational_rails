@@ -1,0 +1,3 @@
+class OutPatientClinics < ApplicationController
+
+end

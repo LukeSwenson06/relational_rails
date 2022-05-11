@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/outpatientclinics', to: 'outpatientclinics#index'
+  get '/outpatientclinics', to: 'outpatient_clinics#index'
 end

@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "outpatient clinics index page", type: :feature do
-#   For each parent table
-# As a visitor
-# When I visit '/parents'
-# Then I see the name of each parent record in the system
   it "can see each outpatient clinic and display it" do
     clinic_1 = OutpatientClinic.create( name: "Loveless",
                                         city: "Albuquerque",
@@ -28,7 +24,5 @@ RSpec.describe "outpatient clinics index page", type: :feature do
 
  expect(page).to have_content(clinic_1.name)
  expect(page).to have_content(clinic_2.name)
-
-
   end
 end

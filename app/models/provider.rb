@@ -1,3 +1,2 @@
 class Provider < ApplicationRecord
-
 end

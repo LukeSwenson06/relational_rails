@@ -3,7 +3,19 @@ require 'rails_helper'
 RSpec.describe "specific provider and show attributes ", type: :feature do
 
   it "can show 1 provider by ID and display all attributes" do
-    provider = Provider.create(  name: "John Smith",
+    outpatient_clinics = OutpatientClinic.create!(
+                                        name: "Loveless",
+                                        city: "Albuquerque",
+                                        rank: 25,
+                                        radiology: true,
+                                        pediatrics: true,
+                                        womens_health: true,
+                                        referrals: false,
+                                        clinic_services_provided: 16
+                                )
+
+    provider = outpatient_clinics.providers.create!(
+                                  name: "John Smith",
                                   age: 23,
                                   doctor: true,
                                   review_rating: 4

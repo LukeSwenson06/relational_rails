@@ -5,10 +5,10 @@ RSpec.describe OutpatientClinic, type: :model do
     it { should validate_presence_of :name}
     it { should validate_presence_of :city}
     it { should validate_presence_of :rank}
-    it { should validate_presence_of :radiology}
-    it { should validate_presence_of :pediatrics}
-    it { should validate_presence_of :womens_health}
-    it { should validate_presence_of :referrals}
+    it { should allow_value(true).for(:radiology)}
+    it { should allow_value(true).for(:pediatrics) }
+    it { should allow_value(false).for(:womens_health) }
+    it { should allow_value(false).for(:referrals) }
     it { should validate_presence_of :clinic_services_provided}
 
   end

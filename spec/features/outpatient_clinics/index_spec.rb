@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "outpatient clinics index page", type: :feature do
   it "can see each outpatient clinic and display it" do
-    clinic_1 = OutpatientClinic.create( name: "Loveless",
+    clinic_1 = OutpatientClinic.create!( name: "Loveless",
                                         city: "Albuquerque",
                                         rank: 25,
                                         radiology: true,
@@ -11,7 +11,7 @@ RSpec.describe "outpatient clinics index page", type: :feature do
                                         referrals: false,
                                         clinic_services_provided: 16
                                       )
-    clinic_2 = OutpatientClinic.create( name: "General",
+    clinic_2 = OutpatientClinic.create!( name: "General",
                                         city: "Albuquerque",
                                         rank: 18,
                                         radiology: false,

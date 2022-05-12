@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/outpatientclinics', to: 'outpatient_clinics#index'
   get '/outpatientclinics/:id', to: 'outpatient_clinics#show'
   get '/providers', to: 'providers#index'
+  get '/providers/:id', to: 'providers#show'
 end

@@ -12,4 +12,6 @@ RSpec.describe OutpatientClinic, type: :model do
     it { should validate_presence_of :clinic_services_provided}
 
   end
+
+
 end

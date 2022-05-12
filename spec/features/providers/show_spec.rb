@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "providers index page", type: :feature do
+RSpec.describe "specific provider and show attributes ", type: :feature do
 
-  it "it can show provider and all attributes" do
+  it "can show 1 provider by ID and display all attributes" do
     outpatient_clinics = OutpatientClinic.create!(
                                         name: "Loveless",
                                         city: "Albuquerque",
@@ -20,13 +20,11 @@ RSpec.describe "providers index page", type: :feature do
                                   doctor: true,
                                   review_rating: 4
                                 )
-  visit "/providers"
-  save_and_open_page
+  visit "/providers/#{provider.id}"
+
   expect(page).to have_content(provider.name)
   expect(page).to have_content(provider.age)
   expect(page).to have_content(provider.doctor)
   expect(page).to have_content(provider.review_rating)
-
-
   end
 end

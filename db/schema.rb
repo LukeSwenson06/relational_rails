@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_11_232138) do
+ActiveRecord::Schema.define(version: 2022_05_12_192058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2022_05_11_232138) do
     t.integer "review_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "outpatient_clinic_id"
+    t.index ["outpatient_clinic_id"], name: "index_providers_on_outpatient_clinic_id"
   end
 
+  add_foreign_key "providers", "outpatient_clinics"
 end

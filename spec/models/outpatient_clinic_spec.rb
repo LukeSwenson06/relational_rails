@@ -13,5 +13,7 @@ RSpec.describe OutpatientClinic, type: :model do
 
   end
 
-
+  describe 'relationships' do
+    it { should have_many :providers }
+  end
 end

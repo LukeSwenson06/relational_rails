@@ -16,4 +16,49 @@ RSpec.describe OutpatientClinic, type: :model do
   describe 'relationships' do
     it { should have_many :providers }
   end
+
+  describe 'instance methods' do
+    describe '#most_recently_created' do
+      before :each do
+        @clinic_1 = OutpatientClinic.create!(
+                                            name: "Loveless",
+                                            city: "Albuquerque",
+                                            rank: 25,
+                                            radiology: true,
+                                            pediatrics: true,
+                                            womens_health: true,
+                                            referrals: false,
+                                            clinic_services_provided: 16
+
+                                    )
+        @clinic_2 = OutpatientClinic.create!(
+                                            name: "Medical Zone Clinic",
+                                            city: "Dakota",
+                                            rank: 13,
+                                            radiology: true,
+                                            pediatrics: false,
+                                            womens_health: true,
+                                            referrals: true,
+                                            clinic_services_provided: 9
+                                    )
+        @clinic_3 = OutpatientClinic.create!(
+                                            name: "Union Health Clinic",
+                                            city: "Albquerque",
+                                            rank: 6,
+                                            radiology: true,
+                                            pediatrics: true,
+                                            womens_health: true,
+                                            referrals: true,
+                                            clinic_services_provided: 22
+                                    )
+
+
+    end
+
+    it "returns most recently created outpatient clinic" do
+      expect(OutpatientClinic.most_recently_created.to_a).to eq([@clinic_1, @clinic_2, @clinic_3])
+    end
+
+    end
+  end
 end

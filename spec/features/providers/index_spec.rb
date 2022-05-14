@@ -21,7 +21,7 @@ RSpec.describe "providers index page", type: :feature do
                                   review_rating: 4
                                 )
   visit "/providers"
-  save_and_open_page
+
   expect(page).to have_content(provider.name)
   expect(page).to have_content(provider.age)
   expect(page).to have_content(provider.doctor)

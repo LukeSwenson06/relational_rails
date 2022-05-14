@@ -58,7 +58,6 @@ RSpec.describe OutpatientClinic, type: :model do
     it "returns most recently created outpatient clinic" do
       expect(OutpatientClinic.most_recently_created.to_a).to eq([@clinic_1, @clinic_2, @clinic_3])
     end
-
     end
   end
 end

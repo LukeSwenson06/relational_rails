@@ -1,6 +1,6 @@
 class OutpatientClinicsController < ApplicationController
   def index
-    @outpatientclinics = OutpatientClinic.all
+    @outpatientclinics = OutpatientClinic.most_recently_created
   end
 
   def show

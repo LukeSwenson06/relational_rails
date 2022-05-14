@@ -9,4 +9,9 @@ class OutpatientClinic < ApplicationRecord
   validates :womens_health, inclusion: [true, false]
   validates :referrals, inclusion: [true, false]
   validates_presence_of :clinic_services_provided
+
+
+ def self.most_recently_created
+  order(:created_at)
+ end
 end

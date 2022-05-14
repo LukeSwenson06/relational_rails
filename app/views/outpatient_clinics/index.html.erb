@@ -1,4 +1,4 @@
 <h1>Outpatient Clinics</h1>
 <% @outpatientclinics.each do |clinic| %>
-<h3><%= clinic.name %></h3>
+<p><%= clinic.name %> I got made: <%= clinic.created_at %></p>
 <% end %>

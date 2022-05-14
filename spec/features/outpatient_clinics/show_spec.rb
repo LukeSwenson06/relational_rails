@@ -47,4 +47,18 @@ RSpec.describe "outpatient clinics show page", type: :feature do
     expect(page).to have_content("Number of Providers: 2")
 
   end
+
+  it "can take you to each outpatientclinics index page" do
+    visit "/outpatientclinics/#{@clinic_1.id}"
+    click_link("Outpatient Clinics Index")
+    expect(current_path).to eq("/outpatientclinics")
+
+  end
+
+  it "can take you to the providers index page" do
+    visit "/outpatientclinics/#{@clinic_1.id}"
+    click_link("Providers Index")
+  expect(current_path).to eq("/providers")
+
+  end
 end

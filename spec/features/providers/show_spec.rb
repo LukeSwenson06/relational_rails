@@ -29,4 +29,18 @@ RSpec.describe "specific provider and show attributes ", type: :feature do
   expect(page).to have_content(@provider.doctor)
   expect(page).to have_content(@provider.review_rating)
   end
+
+  it "can take you to the providers index page" do
+    visit "/providers/#{@provider.id}"
+    click_link("Providers Index")
+
+  expect(current_path).to eq("/providers")
+end
+
+it "can take you to each outpatientclinics index page" do
+    visit "/providers/#{@provider.id}"
+    click_link("Outpatient Clinics Index")
+
+    expect(current_path).to eq("/outpatientclinics")
+  end
 end

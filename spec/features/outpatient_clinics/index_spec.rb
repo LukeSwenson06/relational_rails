@@ -45,7 +45,7 @@ RSpec.describe "outpatient clinics index page", type: :feature do
   end
 
   it "can take you to the providers index page" do
-    visit "/outpatientclinics/"
+    visit '/outpatientclinics'
     click_link("Providers Index")
   expect(current_path).to eq("/providers")
   end

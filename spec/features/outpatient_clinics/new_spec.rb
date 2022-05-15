@@ -13,11 +13,11 @@ require 'rails_helper'
 # a new parent record is created,
 # and I am redirected to the Parent Index page where I see the new Parent displayed.
 
-RSpec.describe "New Outpatient Clinic" do
+RSpec.describe "Creating new Outpatient Clinics" do
   it "goes to the new page in the outpatient clinics index page " do
     visit '/outpatientclinics'
 
-    click_link("New Outpatient Clinic")
+    click_link('New Outpatient Clinic')
     expect(current_path).to eq("/outpatientclinics/new")
 
   end

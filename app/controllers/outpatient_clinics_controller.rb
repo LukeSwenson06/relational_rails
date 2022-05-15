@@ -6,4 +6,8 @@ class OutpatientClinicsController < ApplicationController
   def show
     @outpatientclinics = OutpatientClinic.find(params[:id])
   end
+
+  def new
+
+  end
 end

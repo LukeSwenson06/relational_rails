@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "outpatient clinics show page", type: :feature do
   before :each do
-    @clinic_1 = OutpatientClinic.create( name: "Loveless",
+    @clinic_1 = OutpatientClinic.create(
+      name: "Loveless",
       city: "Albuquerque",
       rank: 25,
       radiology: true,
@@ -13,17 +14,17 @@ RSpec.describe "outpatient clinics show page", type: :feature do
     )
 
     @provider_1 = @clinic_1.providers.create!(
-                                        name: "John Smith",
-                                        age: 23,
-                                        doctor: true,
-                                        review_rating: 4
-                                )
+      name: "John Smith",
+      age: 23,
+      doctor: true,
+      review_rating: 4
+    )
     @provider_2 = @clinic_1.providers.create!(
-                                        name: "Jane Doe",
-                                        age: 27,
-                                        doctor: true,
-                                        review_rating: 5
-                                )
+      name: "Jane Doe",
+      age: 27,
+      doctor: true,
+      review_rating: 5
+    )
 
   end
   it "can see the outpatient clinics attributes" do
@@ -58,7 +59,15 @@ RSpec.describe "outpatient clinics show page", type: :feature do
   it "can take you to the providers index page" do
     visit "/outpatientclinics/#{@clinic_1.id}"
     click_link("Providers Index")
-  expect(current_path).to eq("/providers")
 
+    expect(current_path).to eq("/providers")
+
+  end
+
+  it "can take you to the outpatient clinics providers index page" do
+    visit "/outpatientclinics/#{@clinic_1.id}"
+
+    click_link("Providers")
+    expect(current_path).to eq("/outpatientclinics/#{@clinic_1.id}/providers")
   end
 end

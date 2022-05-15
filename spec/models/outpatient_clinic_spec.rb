@@ -17,7 +17,7 @@ RSpec.describe OutpatientClinic, type: :model do
     it { should have_many :providers }
   end
 
-  describe 'instance methods' do
+  describe 'class methods' do
     describe '#most_recently_created' do
       before :each do
         @clinic_1 = OutpatientClinic.create!(
@@ -52,6 +52,20 @@ RSpec.describe OutpatientClinic, type: :model do
                                             clinic_services_provided: 22
                                     )
 
+        @provider_1 = @clinic_1.providers.create!(
+                                            name: "John Smith",
+                                            age: 23,
+                                            doctor: true,
+                                            review_rating: 4
+                                    )
+        @provider_2 = @clinic_1.providers.create!(
+                                            name: "Jane Doe",
+                                            age: 27,
+                                            doctor: true,
+                                            review_rating: 5
+                                    )
+
+
 
     end
 
@@ -59,6 +73,13 @@ RSpec.describe OutpatientClinic, type: :model do
       expect(OutpatientClinic.most_recently_created.to_a).to eq([@clinic_1, @clinic_2, @clinic_3])
     end
 
+    describe '#provider_assoc_count' do
+      it "returns count of providers associated with outpatient clinics" do
+
+      expect(@clinic_1.provider_assoc_count).to eq(2)
+
+        end
+      end
     end
   end
 end

@@ -14,4 +14,8 @@ class OutpatientClinic < ApplicationRecord
  def self.most_recently_created
   order(:created_at)
  end
+
+ def provider_assoc_count
+   self.providers.count(:id)
+ end
 end

@@ -13,8 +13,7 @@ class OutpatientClinicsController < ApplicationController
 
   def create
     clinic = OutpatientClinic.create!(outpatientclinics_params)
-      clinic.save
-      redirect_to "/outpatientclinics"
+    redirect_to "/outpatientclinics"
   end
 
   def outpatientclinics_params

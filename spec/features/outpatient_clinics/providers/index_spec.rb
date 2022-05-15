@@ -46,6 +46,7 @@ RSpec.describe "Outpatient Clinics Providers index" do
     expect(current_path).to eq("/outpatientclinics")
 
   end
+
   it "can take you to the providers index page" do
     visit "/outpatientclinics/#{@clinic.id}/providers"
     click_link("Providers Index")

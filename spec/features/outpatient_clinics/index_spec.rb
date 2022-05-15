@@ -35,4 +35,18 @@ RSpec.describe "outpatient clinics index page", type: :feature do
     visit "/outpatientclinics"
     expect(page).to have_content(@clinic_1.created_at)
   end
+
+  it "can take you to the providers index page" do
+    visit "/outpatientclinics/"
+
+    click_link("Providers Index")
+  expect(current_path).to eq("/providers")
+
+  end
+
+  it "can take you to the providers index page" do
+    visit "/outpatientclinics/"
+    click_link("Providers Index")
+  expect(current_path).to eq("/providers")
+  end
 end

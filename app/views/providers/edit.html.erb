@@ -1,0 +1,13 @@
+<%= form_with url: "/providers/#{@providers.id}", method: :patch, local: true do |form| %>
+<p><%= form.label :name %></p>
+<%= form.text_field :name %>
+<p><%= form.label :age %></p>
+<%= form.text_field :age %>
+<p><%= form.label "Doctor?" %></p>
+<%= form.text_field :doctor %>
+<p><%= form.label "Review rating 1-5" %></p>
+<%= form.text_field :review_rating %>
+
+<p><%= form.submit "Update Provider" %></p>
+
+<% end %>

@@ -28,7 +28,7 @@ RSpec.describe "Provider edit" do
     expect(page).to have_content(23)
     expect(page).to have_content(4)
 
-    click_link("Update Providers")
+    click_link("Update Provider")
 
     visit "/providers/#{@provider.id}/edit"
 
@@ -37,7 +37,7 @@ RSpec.describe "Provider edit" do
     fill_in("doctor", with: true)
     fill_in("review_rating", with: 3)
 
-    click_button "Update"
+    click_button "Update Provider"
 
     expect(current_path).to eq("/providers/#{@provider.id}")
     expect(page).to have_content("Debra Jenkins")

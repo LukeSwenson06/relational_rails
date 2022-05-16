@@ -1,19 +1,20 @@
 <%= form_with url: "/outpatientclinics/#{@outpatientclinic.id}", method: :patch, local: true do |form| %>
-  <%= form.label :name %>
+  <p><%= form.label :name %></p>
   <%= form.text_field :name %>
-  <%= form.label :city %>
+  <p><%= form.label :city %></p>
   <%= form.text_field :city %>
-  <%= form.label :rank %>
+  <p><%= form.label :rank %></p>
   <%= form.text_field :rank %>
-  <%= form.label :radiology %>
+  <p><%= form.label :radiology %></p>
   <%= form.text_field :radiology %>
-  <%= form.label :pediatrics %>
+  <p><%= form.label :pediatrics %></p>
   <%= form.text_field :pediatrics %>
-  <%= form.label :womens_health %>
+  <p><%= form.label :womens_health %></p>
   <%= form.text_field :womens_health %>
-  <%= form.label :referrals %>
+  <p><%= form.label :referrals %></p>
   <%= form.text_field :referrals %>
-  <%= form.label :clinic_services_provided %>
+  <p><%= form.label :clinic_services_provided %></p>
   <%= form.text_field :clinic_services_provided %>
-  <%= form.submit 'Update' %>
+  <p><%= form.submit 'Update' %></p>
 <% end %>
+<!--  -->

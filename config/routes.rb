@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   patch '/outpatientclinics/:id', to: 'outpatient_clinics#update'
   get '/providers', to: 'providers#index'
   get '/providers/:id', to: 'providers#show'
+  get '/outpatientclinics/:outpatientclinics_id/providers/new', to: 'outpatient_clinics_providers#new'
   get '/outpatientclinics/:outpatientclinics_id/providers', to: 'outpatient_clinics_providers#index'
+  post '/outpatientclinics/:outpatientclinics_id/providers', to: 'outpatient_clinics_providers#create'
 end

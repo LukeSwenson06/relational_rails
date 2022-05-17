@@ -4,3 +4,4 @@
 <p> Doctor: <%= @providers.doctor %></p>
 <p> Review Rating: <%= @providers.review_rating %></p>
 <%= link_to "Update Provider", "/providers/#{@providers.id}/edit" %>
+<p><%= link_to "Delete #{@providers.name}", "/providers/#{@providers.id}", method: :delete %></p>

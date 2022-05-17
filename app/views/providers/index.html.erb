@@ -1,7 +1,7 @@
 <a href="/outpatientclinics">Outpatient Clinics Index</a> <a href="/providers">Providers Index</a>
 <h1> Providers </h1>
 <% @providers.each do |provider| %>
-<p> Name: <%= provider.name %></p>
+<h3>Name: <%= link_to provider.name, "/providers/#{provider.id}" %> <h3>
 <p> Age: <%= provider.age %></p>
 <p> Doctor?: <%= provider.doctor %></p>
 <p> Review_rating: <%= provider.review_rating %></p>

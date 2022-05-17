@@ -5,4 +5,8 @@ class Provider < ApplicationRecord
   validates_presence_of :age
   validates :doctor, inclusion: [true, false]
   validates_presence_of :review_rating
+
+  def self.true_records
+    where("doctor = true")
+  end
 end

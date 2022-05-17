@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/providers/:id', to: 'providers#show'
   get '/providers/:id/edit', to: 'providers#edit'
   patch '/providers/:id', to: 'providers#update'
+  delete '/providers/:id', to: 'providers#destroy'
   get '/outpatientclinics/:outpatientclinics_id/providers/new', to: 'outpatient_clinics_providers#new'
   get '/outpatientclinics/:outpatientclinics_id/providers', to: 'outpatient_clinics_providers#index'
   post '/outpatientclinics/:outpatientclinics_id/providers', to: 'outpatient_clinics_providers#create'

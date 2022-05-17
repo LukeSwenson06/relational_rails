@@ -3,7 +3,7 @@
 <p><%= link_to "New Outpatient Clinic", "/outpatientclinics/new" %></p>
 <h1>Outpatient Clinics</h1>
 <% @outpatientclinics.each do |clinic| %>
-<p><%= clinic.name %>
+<p><b> Name: <%= link_to clinic.name, "/outpatientclinics/#{clinic.id}" %><b></p>
 <p> Created: <%= clinic.created_at %></p>
 <p><%= link_to "Edit #{clinic.name}", "/outpatientclinics/#{clinic.id}/edit" %></p>
 <% end %>

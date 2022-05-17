@@ -35,7 +35,7 @@ it "can delete and visit parent page" do
   click_link("Delete Outpatient Clinic")
 
   visit "/outpatientclinics"
-
+  expect(current_path).to eq("/outpatientclinics")
   expect(page).to_not have_content("Loveless")
   end
 end

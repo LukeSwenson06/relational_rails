@@ -10,3 +10,4 @@
 <p> Number of Providers: <%= @outpatientclinics.provider_assoc_count %></p>
 <p><%= link_to "Providers", "/outpatientclinics/#{@outpatientclinics.id}/providers" %></p>
 <p><%= link_to "Update Outpatient Clinics", "/outpatientclinics/#{@outpatientclinics.id}/edit", method: :get %></p>
+<p><%= link_to "Delete Outpatient Clinic", "/outpatientclinics/#{@outpatientclinics.id}", method: :delete %></p>

@@ -38,6 +38,13 @@ loveless.providers.create!(
   review_rating: 4
 )
 
+loveless.providers.create!(
+  name: "Dr Who",
+  age: 100000000,
+  doctor: true,
+  review_rating: 1
+)
+
 general.providers.create!(
   name: "Jane Doe",
   age: 34,

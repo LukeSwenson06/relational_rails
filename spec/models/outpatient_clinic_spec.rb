@@ -20,6 +20,9 @@ RSpec.describe OutpatientClinic, type: :model do
   describe 'class methods' do
     describe '#most_recently_created' do
       before :each do
+        Provider.destroy_all
+        OutpatientClinic.destroy_all
+        
         @clinic_1 = OutpatientClinic.create!(
                                             name: "Loveless",
                                             city: "Albuquerque",

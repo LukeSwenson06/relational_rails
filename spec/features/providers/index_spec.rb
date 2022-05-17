@@ -48,4 +48,72 @@ RSpec.describe "providers index page", type: :feature do
 
     expect(current_path).to eq("/outpatientclinics")
   end
+
+  it "only shows the doctors on the index page" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic_1 = OutpatientClinic.create!(
+      name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
+    provider_1 = clinic_1.providers.create!(
+      name: "Aaron Uppercut",
+      age: 27,
+      doctor: true,
+      review_rating: 5
+    )
+    provider_2 = clinic_1.providers.create!(
+      name: "Stephen Strange ",
+      age: 42,
+      doctor: true,
+      review_rating: 5
+    )
+    provider_3 = clinic_1.providers.create!(
+      name: "Dr Who",
+      age: 1000000000,
+      doctor: false,
+      review_rating: 1
+    )
+    visit "/providers"
+
+    expect(page).to have_content("Stephen Strange")
+    expect(page).to have_content("Aaron Uppercut")
+    expect(page).to have_content(27)
+    expect(page).to_not have_content("Dr.Who")
+    expect(page).to_not have_content(1000000000)
+  end
+
+  it "can take you to a link to edit child" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic_1 = OutpatientClinic.create!(
+      name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
+
+    provider_1 = clinic_1.providers.create!(
+      name: "Jane Doe",
+      age: 27,
+      doctor: true,
+      review_rating: 5
+    )
+    visit '/providers'
+    click_link("Edit #{provider_1.name}")
+
+    expect(current_path).to eq("/providers/#{provider_1.id}/edit")
+  end
 end

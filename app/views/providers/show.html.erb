@@ -1,5 +1,6 @@
-<a href="/outpatientclinics">Outpatient Clinics Index</a> <a href="/providers">Providers Index</a> 
+<a href="/outpatientclinics">Outpatient Clinics Index</a> <a href="/providers">Providers Index</a>
 <h1><%= @providers.name %></h1>
 <p> Age: <%= @providers.age %></p>
 <p> Doctor: <%= @providers.doctor %></p>
 <p> Review Rating: <%= @providers.review_rating %></p>
+<%= link_to "Update Provider", "/providers/#{@providers.id}/edit" %>

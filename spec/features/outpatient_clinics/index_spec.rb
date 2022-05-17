@@ -31,9 +31,22 @@ RSpec.describe "outpatient clinics index page", type: :feature do
   end
 
   it "has the last created at data" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic_1 = OutpatientClinic.create!( name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
 
     visit "/outpatientclinics"
-    expect(page).to have_content(@clinic_1.created_at)
+
+    expect(page).to have_content(clinic_1.created_at)
   end
 
   it "can take you to the providers index page" do
@@ -48,5 +61,25 @@ RSpec.describe "outpatient clinics index page", type: :feature do
     visit '/outpatientclinics'
     click_link("Providers Index")
   expect(current_path).to eq("/providers")
+  end
+
+  it "it can take you to the page" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic_1 = OutpatientClinic.create!( name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
+
+    visit '/outpatientclinics'
+    click_link("Edit #{clinic_1.name}")
+
+    expect(current_path).to eq("/outpatientclinics/#{clinic_1.id}/edit")
   end
 end

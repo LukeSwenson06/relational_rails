@@ -5,4 +5,5 @@
 <p> Age: <%= provider.age %></p>
 <p> Doctor?: <%= provider.doctor %></p>
 <p> Review_rating: <%= provider.review_rating %></p>
+<p><%= link_to "Edit #{provider.name}", "/providers/#{provider.id}/edit" %></p>
 <% end %>

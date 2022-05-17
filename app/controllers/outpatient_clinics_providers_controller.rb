@@ -13,7 +13,6 @@ class OutpatientClinicsProvidersController < ApplicationController
   end
 #
   def create
-    binding.pry
     clinic = OutpatientClinic.find(params[:outpatientclinics_id])
     provider = clinic.providers.create!(providers_params)
     redirect_to "/outpatientclinics/#{clinic.id}/providers"

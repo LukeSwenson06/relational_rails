@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   def index
-    @providers = Provider.all
+    @providers = Provider.true_records
   end
 
   def show

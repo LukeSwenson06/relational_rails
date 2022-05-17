@@ -1,6 +1,9 @@
-<a href="/outpatientclinics">Outpatient Clinics Index</a> <a href="/providers" align="right">Providers Index</a>
+<%= link_to "Outpatient Clinics Index", "/outpatientclinics" %>
+<p><%= link_to "Providers Index", "/providers" %></p>
 <p><%= link_to "New Outpatient Clinic", "/outpatientclinics/new" %></p>
 <h1>Outpatient Clinics</h1>
 <% @outpatientclinics.each do |clinic| %>
-<p><%= clinic.name %> I got made: <%= clinic.created_at %></p>
+<p><%= clinic.name %>
+<p> Created: <%= clinic.created_at %></p>
+<p><%= link_to "Edit #{clinic.name}", "/outpatientclinics/#{clinic.id}/edit" %></p>
 <% end %>

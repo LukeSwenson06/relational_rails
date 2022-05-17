@@ -9,3 +9,4 @@
 <p> Total Clinic Services: <%= @outpatientclinics.clinic_services_provided %></p>
 <p> Number of Providers: <%= @outpatientclinics.provider_assoc_count %></p>
 <p><%= link_to "Providers", "/outpatientclinics/#{@outpatientclinics.id}/providers" %></p>
+<p><%= link_to "Update Outpatient Clinics", "/outpatientclinics/#{@outpatientclinics.id}/edit", method: :get %></p>

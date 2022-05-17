@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/outpatientclinics/new', to: 'outpatient_clinics#new'
   post '/outpatientclinics', to: 'outpatient_clinics#create'
   get '/outpatientclinics/:id', to: 'outpatient_clinics#show'
+  get '/outpatientclinics/:id/edit', to: 'outpatient_clinics#edit'
+  patch '/outpatientclinics/:id', to: 'outpatient_clinics#update'
   get '/providers', to: 'providers#index'
   get '/providers/:id', to: 'providers#show'
   get '/outpatientclinics/:outpatientclinics_id/providers', to: 'outpatient_clinics_providers#index'

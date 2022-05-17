@@ -19,4 +19,14 @@ class OutpatientClinicsController < ApplicationController
   def outpatientclinics_params
     params.permit(:name, :city, :rank, :radiology, :pediatrics, :womens_health, :referrals, :clinic_services_provided)
   end
+
+  def edit
+    @outpatientclinic = OutpatientClinic.find(params[:id])
+  end
+
+  def update
+    outpatientclinic = OutpatientClinic.find(params[:id])
+    outpatientclinic.update!(outpatientclinics_params)
+    redirect_to "/outpatientclinics/#{outpatientclinic.id}"
+  end
 end

@@ -9,4 +9,8 @@ class Provider < ApplicationRecord
   def self.true_records
     where("doctor = true")
   end
+
+  def self.alphabetize_providers
+    order(:name)
+  end
 end

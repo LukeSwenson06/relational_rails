@@ -1,5 +1,7 @@
 <a href="/outpatientclinics">Outpatient Clinics Index</a> <a href="/providers">Providers Index</a>
 <p><%= link_to "Create New Provider", "/outpatientclinics/#{@clinic.id}/providers/new" %></p>
+<p><%= link_to "Sort Providers", sort: "alphabetize" %></p>
+
 <% @providers.each do |provider| %>
   <p>Name: <%= provider.name %></p>
   <p>Age: <%= provider.age %> </p>

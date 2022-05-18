@@ -61,4 +61,40 @@ RSpec.describe "Outpatient Clinics Providers index" do
 
     expect(current_path).to eq("/outpatientclinics/#{@clinic.id}/providers")
   end
+
+  it "it whill show only providers with a 5 doctor rating" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic = OutpatientClinic.create!(
+      name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
+    provider_1 = clinic.providers.create!(
+      name: "John Smith",
+      age: 23,
+      doctor: true,
+      review_rating: 4
+    )
+    provider_2 = clinic.providers.create!(
+      name: "Jane Doe",
+      age: 34,
+      doctor: true,
+      review_rating: 5
+    )
+
+  visit "/outpatientclinics/#{clinic.id}/providers"
+
+    fill_in('Review Rating', with: 4)
+    click_button("Returns records with more than minimum number of the review rating")
+    save_and_open_page
+    expect(page).to_not have_content(provider_1.name)
+    expect(page).to have_content(provider_2.name)
+  end
 end

@@ -1,4 +1,4 @@
-<%= link_to "Outpatient Clinics Index", "/outpatientclinics" %> 
+<%= link_to "Outpatient Clinics Index", "/outpatientclinics" %>
 <p> <%= link_to "Providers Index", "/providers" %></p>
 <p><%= link_to "Create New Provider", "/outpatientclinics/#{@clinic.id}/providers/new" %></p>
 <p><%= link_to "Sort Providers", sort: "alphabetize" %></p>
@@ -8,4 +8,11 @@
   <p>Age: <%= provider.age %> </p>
   <p>Doctor?: <%= provider.doctor %></p>
   <p>Review Rating: <%= provider.review_rating %></p>
+<% end %>
+<br>
+<h3> Filter Reviews <h3>
+<%= form_with url: "/outpatientclinics/#{@clinic.id}/providers", method: :get, local: true do |form| %>
+<p><%= form.label :filter, 'Review Rating' %></p>
+<%= form.text_field :filter %>
+<%= form.submit "Returns records with more than minimum number of the review rating" %>
 <% end %>

@@ -3,6 +3,8 @@ class OutpatientClinicsProvidersController < ApplicationController
     @clinic = OutpatientClinic.find(params[:outpatientclinics_id])
     if params[:sort] == "alphabetize"
       @providers = @clinic.providers.alphabetize_providers
+    elsif params[:filter]
+      @providers = @clinic.providers.filter_reviews(params[:filter])
     else
       @providers = @clinic.providers
     end

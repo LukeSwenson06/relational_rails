@@ -5,6 +5,7 @@ RSpec.describe "Creating new Outpatient Clinics" do
     visit '/outpatientclinics'
 
     click_link('New Outpatient Clinic')
+
     expect(current_path).to eq("/outpatientclinics/new")
 
   end

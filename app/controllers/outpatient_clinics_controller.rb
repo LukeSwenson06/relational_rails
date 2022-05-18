@@ -31,9 +31,9 @@ class OutpatientClinicsController < ApplicationController
     clinic.destroy
     redirect_to "/outpatientclinics"
   end
-end
 
 private
   def outpatientclinics_params
     params.permit(:name, :city, :rank, :radiology, :pediatrics, :womens_health, :referrals, :clinic_services_provided)
   end
+end

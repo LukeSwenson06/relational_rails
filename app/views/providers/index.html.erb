@@ -1,11 +1,9 @@
-<%= link_to "Outpatient Clinics Index", "/outpatientclinics" %>
-<p> <%= link_to "Providers Index", "/providers" %></p>
 <h1> Providers </h1>
 <% @providers.each do |provider| %>
-<h3>Name: <%= link_to provider.name, "/providers/#{provider.id}" %> <h3>
-<p> Age: <%= provider.age %></p>
-<p> Doctor?: <%= provider.doctor %></p>
-<p> Review_rating: <%= provider.review_rating %></p>
+<h3>Name: <%= link_to provider.name, "/providers/#{provider.id}" %> </h3>
+<p><b>Age:</b> <%= provider.age %></p>
+<p><b>Doctor?:</b> <%= provider.doctor %></p>
+<p><b>Review_rating:</b> <%= provider.review_rating %></p>
 <p><%= link_to "Edit #{provider.name}", "/providers/#{provider.id}/edit" %></p>
 <p><%= link_to "Delete #{provider.name}", "/providers/#{provider.id}", method: :delete %></p>
 <% end %>

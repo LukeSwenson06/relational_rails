@@ -89,8 +89,8 @@ RSpec.describe Provider, type: :model do
       expect(Provider.alphabetize_providers).to eq([provider_1, provider_3, provider_2])
       end
 
-      describe '#filter_providers_doctors' do
-        it "returns only doctors with a review rating higher then output" do
+    describe '#filter_providers_doctors' do
+      it "returns only doctors with a review rating higher then output" do
           Provider.destroy_all
           OutpatientClinic.destroy_all
 

@@ -22,21 +22,22 @@ RSpec.describe "providers index page", type: :feature do
 
   end
   it "it can show provider and all attributes" do
-  visit "/providers"
+    visit "/providers"
 
-  expect(page).to have_content(@provider.name)
-  expect(page).to have_content(@provider.name)
-  expect(page).to have_content(@provider.age)
-  expect(page).to have_content(@provider.age)
-  expect(page).to have_content(@provider.doctor)
-  expect(page).to have_content(@provider.doctor)
-  expect(page).to have_content(@provider.review_rating)
+    expect(page).to have_content(@provider.name)
+    expect(page).to have_content(@provider.name)
+    expect(page).to have_content(@provider.age)
+    expect(page).to have_content(@provider.age)
+    expect(page).to have_content(@provider.doctor)
+    expect(page).to have_content(@provider.doctor)
+    expect(page).to have_content(@provider.review_rating)
 
 
   end
 
   it "can take you to the providers index page" do
     visit "/providers"
+
     click_link("Providers Index")
 
     expect(current_path).to eq("/providers")
@@ -44,6 +45,7 @@ RSpec.describe "providers index page", type: :feature do
 
   it "can take you to each outpatientclinics index page" do
     visit "/providers"
+
     click_link("Outpatient Clinics Index")
 
     expect(current_path).to eq("/outpatientclinics")
@@ -112,6 +114,7 @@ RSpec.describe "providers index page", type: :feature do
       review_rating: 5
     )
     visit '/providers'
+
     click_link("Edit #{provider_1.name}")
 
     expect(current_path).to eq("/providers/#{provider_1.id}/edit")
@@ -145,6 +148,7 @@ RSpec.describe "providers index page", type: :feature do
       review_rating: 1
     )
     visit '/providers'
+
     click_link("Delete #{provider_1.name}")
 
     expect(current_path).to eq("/providers")

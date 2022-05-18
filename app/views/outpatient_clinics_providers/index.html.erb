@@ -1,10 +1,8 @@
-<%= link_to "Outpatient Clinics Index", "/outpatientclinics" %>
-<p> <%= link_to "Providers Index", "/providers" %></p>
 <p><%= link_to "Create New Provider", "/outpatientclinics/#{@clinic.id}/providers/new" %></p>
 <p><%= link_to "Sort Providers", sort: "alphabetize" %></p>
 
 <% @providers.each do |provider| %>
-  <p>Name: <%= provider.name %></p>
+  <p><h3>Name: <%= provider.name %></h3></p>
   <p>Age: <%= provider.age %> </p>
   <p>Doctor?: <%= provider.doctor %></p>
   <p>Review Rating: <%= provider.review_rating %></p>

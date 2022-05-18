@@ -93,7 +93,7 @@ RSpec.describe "Outpatient Clinics Providers index" do
 
     fill_in('Review Rating', with: 4)
     click_button("Returns records with more than minimum number of the review rating")
-    save_and_open_page
+    
     expect(page).to_not have_content(provider_1.name)
     expect(page).to have_content(provider_2.name)
   end

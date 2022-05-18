@@ -22,12 +22,12 @@ RSpec.describe "specific provider and show attributes ", type: :feature do
 
   end
   it "can show 1 provider by ID and display all attributes" do
-  visit "/providers/#{@provider.id}"
+    visit "/providers/#{@provider.id}"
 
-  expect(page).to have_content(@provider.name)
-  expect(page).to have_content(@provider.age)
-  expect(page).to have_content(@provider.doctor)
-  expect(page).to have_content(@provider.review_rating)
+    expect(page).to have_content(@provider.name)
+    expect(page).to have_content(@provider.age)
+    expect(page).to have_content(@provider.doctor)
+    expect(page).to have_content(@provider.review_rating)
   end
 
   it "can take you to the providers index page" do

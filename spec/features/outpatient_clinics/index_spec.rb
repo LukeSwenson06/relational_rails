@@ -53,14 +53,17 @@ RSpec.describe "outpatient clinics index page", type: :feature do
     visit "/outpatientclinics/"
 
     click_link("Providers Index")
-  expect(current_path).to eq("/providers")
+
+    expect(current_path).to eq("/providers")
 
   end
 
   it "can take you to the providers index page" do
     visit '/outpatientclinics'
+
     click_link("Providers Index")
-  expect(current_path).to eq("/providers")
+
+    expect(current_path).to eq("/providers")
   end
 
   it "it can take you to the edit page" do
@@ -78,6 +81,7 @@ RSpec.describe "outpatient clinics index page", type: :feature do
     )
 
     visit '/outpatientclinics'
+
     click_link("Edit #{clinic_1.name}")
 
     expect(current_path).to eq("/outpatientclinics/#{clinic_1.id}/edit")
@@ -110,7 +114,9 @@ RSpec.describe "outpatient clinics index page", type: :feature do
     )
 
     visit '/outpatientclinics'
+
     click_link("Delete #{clinic_1.name}")
+
     expect(current_path).to eq("/outpatientclinics")
 
     expect(page).to_not have_content("Loveless")

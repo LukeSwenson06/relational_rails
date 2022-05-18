@@ -22,7 +22,7 @@ RSpec.describe OutpatientClinic, type: :model do
       before :each do
         Provider.destroy_all
         OutpatientClinic.destroy_all
-        
+
         @clinic_1 = OutpatientClinic.create!(
                                             name: "Loveless",
                                             city: "Albuquerque",
@@ -68,7 +68,12 @@ RSpec.describe OutpatientClinic, type: :model do
                                             review_rating: 5
                                     )
 
-
+        @provider_3 = @clinic_1.providers.create!(
+                                            name: "Dr Strange",
+                                            age: 42,
+                                            doctor: true,
+                                            review_rating: 5
+                                    )
 
     end
 
@@ -79,7 +84,7 @@ RSpec.describe OutpatientClinic, type: :model do
     describe '#provider_assoc_count' do
       it "returns count of providers associated with outpatient clinics" do
 
-      expect(@clinic_1.provider_assoc_count).to eq(2)
+      expect(@clinic_1.provider_assoc_count).to eq(3)
 
         end
       end

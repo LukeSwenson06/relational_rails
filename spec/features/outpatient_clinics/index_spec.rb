@@ -111,7 +111,6 @@ RSpec.describe "outpatient clinics index page", type: :feature do
 
     visit '/outpatientclinics'
     click_link("Delete #{clinic_1.name}")
-
     expect(current_path).to eq("/outpatientclinics")
 
     expect(page).to_not have_content("Loveless")

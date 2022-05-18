@@ -6,4 +6,5 @@
 <p><b> Name: <%= link_to clinic.name, "/outpatientclinics/#{clinic.id}" %><b></p>
 <p> Created: <%= clinic.created_at %></p>
 <p><%= link_to "Edit #{clinic.name}", "/outpatientclinics/#{clinic.id}/edit" %></p>
+<p><%= link_to "Delete #{clinic.name}", "/outpatientclinics/#{clinic.id}", method: :delete %></p>
 <% end %>

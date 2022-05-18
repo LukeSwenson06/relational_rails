@@ -13,4 +13,9 @@ class Provider < ApplicationRecord
   def self.alphabetize_providers
     order(:name)
   end
+
+
+  def self.filter_reviews(number)
+    where('review_rating > ?', number)
+  end
 end

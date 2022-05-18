@@ -11,11 +11,11 @@ class OutpatientClinic < ApplicationRecord
   validates_presence_of :clinic_services_provided
 
 
- def self.most_recently_created
-  order(:created_at)
- end
+  def self.most_recently_created
+    order(:created_at)
+  end
 
- def provider_assoc_count
-   self.providers.count(:id)
- end
+  def provider_assoc_count
+    self.providers.count(:id)
+  end
 end

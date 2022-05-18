@@ -17,6 +17,13 @@ class ProvidersController < ApplicationController
     redirect_to "/providers/#{providers.id}"
   end
 
+  def destroy
+    providers = Provider.find(params[:id])
+    providers.destroy
+    redirect_to '/providers'
+  end
+
+private
   def providers_params
     params.permit(:name, :age, :doctor, :review_rating)
   end

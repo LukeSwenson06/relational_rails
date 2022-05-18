@@ -70,4 +70,6 @@ RSpec.describe "outpatient clinics show page", type: :feature do
     click_link("Providers")
     expect(current_path).to eq("/outpatientclinics/#{@clinic_1.id}/providers")
   end
+
+
 end

@@ -90,7 +90,7 @@ RSpec.describe "providers index page", type: :feature do
     expect(page).to_not have_content(1000000000)
   end
 
-  it "can take you to a link to edit child" do
+  it "can take you to a link to edit provider" do
     Provider.destroy_all
     OutpatientClinic.destroy_all
 
@@ -115,5 +115,43 @@ RSpec.describe "providers index page", type: :feature do
     click_link("Edit #{provider_1.name}")
 
     expect(current_path).to eq("/providers/#{provider_1.id}/edit")
+  end
+
+  it "it can delete the provider" do
+    Provider.destroy_all
+    OutpatientClinic.destroy_all
+
+    clinic_1 = OutpatientClinic.create!(
+      name: "Loveless",
+      city: "Albuquerque",
+      rank: 25,
+      radiology: true,
+      pediatrics: true,
+      womens_health: true,
+      referrals: false,
+      clinic_services_provided: 16
+    )
+
+    provider_1 = clinic_1.providers.create!(
+      name: "Jane Doe",
+      age: 27,
+      doctor: true,
+      review_rating: 5
+    )
+    provider_2 = clinic_1.providers.create!(
+      name: "Dr Who",
+      age: 1000000000,
+      doctor: true,
+      review_rating: 1
+    )
+    visit '/providers'
+    click_link("Delete #{provider_1.name}")
+
+    expect(current_path).to eq("/providers")
+
+    expect(page).to_not have_content("Jane Doe")
+    expect(page).to_not have_content(5)
+    expect(page).to have_content("Dr Who")
+    expect(page).to have_content(1000000000)
   end
 end
